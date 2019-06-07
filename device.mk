@@ -54,7 +54,7 @@ PRODUCT_PACKAGES += \
 include $(LOCAL_PATH)/vendor_prop.mk
 
 # Miui Camera
-$(call inherit-product, vendor/xiaomi/miuicamera/miuicamera-vendor.mk)
+$(call inherit-product, device/xiaomi/miuicamera/miuicamera.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
