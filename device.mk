@@ -34,6 +34,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_tasha.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tasha.xml
 
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+
 # ConfigPanel
 PRODUCT_PACKAGES += \
     ConfigPanel
@@ -50,14 +54,11 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service
 
 # Lineage hardware
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.sagit
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.touch@1.0-service.sagit
 
 # Properties
 include $(LOCAL_PATH)/vendor_prop.mk
-
-# Miui Camera
-$(call inherit-product, device/xiaomi/miuicamera/miuicamera.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/sagit/sagit-vendor.mk)
