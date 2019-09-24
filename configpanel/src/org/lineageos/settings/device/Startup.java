@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.util.Log;
+
 import androidx.preference.PreferenceManager;
 
 import org.lineageos.internal.util.FileUtils;
