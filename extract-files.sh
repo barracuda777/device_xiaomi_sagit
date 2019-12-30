@@ -15,6 +15,23 @@
 # limitations under the License.
 #
 
+function blob_fixup() {
+    case "${1}" in
+    vendor/etc/sensors/hals.conf)
+        sed -i '/sensors.elliptic.so/d' "${2}"
+        ;;
+    vendor/lib64/com.fingerprints.extension@1.0.so)
+        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        ;;
+    vendor/lib64/hw/fingerprint.fpc.msm8998.so)
+        sed -i 's/\/persist\/misc\/calibration_image.pndat/\/vendor\/etc\/fp\/calibrationimage.pndat/g' "${2}"
+        ;;
+    vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so)
+        patchelf --remove-needed "android.hidl.base@1.0.so" "${2}"
+        ;;
+    esac
+}
+
 # If we're being sourced by the common script that we called,
 # stop right here. No need to go down the rabbit hole.
 if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
